@@ -1,0 +1,23 @@
+{
+  "name": "wp-script-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/wordpress__components": "^23.0.12",
+    "@types/wordpress__data": "^6.0.2",
+    "@types/wordpress__element": "^2.4.1",
+    "@wordpress/scripts": "^30.21.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.9.2"
+  }
+}
