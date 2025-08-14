@@ -18,10 +18,14 @@ WordPressでプラグインを有効化
 [my_react_app]
 ```
 
-## 開発
+## コマンド
+
+wp-scripts は @wordpress/scripts パッケージに含まれているコマンドラインツールです
+package.json の scripts セクションに定義することで使用できます
+wp-scripts が自動的に Tailwind CSS を処理
 
 ```bash
-# 開発時
+# 開発時 ホットリロード（ブラウザの自動更新）
 npm run start
 
 # ビルド
