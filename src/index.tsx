@@ -26,10 +26,12 @@ const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<keyof typeof categories>("git"); // カテゴリー
   const [gameStarted, setGameStarted] = useState(false); // ゲーム開始フラグ
-  const [isTyping, setIsTyping] = useState(false); // タイピング状態フラグ
   const [shuffledList, setShuffledList] = useState<WordEntry[]>([]); // シャッフルされたリスト
   const [currentWordIndex, setCurrentWordIndex] = useState(0); // 現在の単語のインデックス
   const [typed, setTyped] = useState(""); // どの文字まで正しくタイプされたか
+  const [inputStatus, setInputStatus] = useState<"normal" | "miss" | "correct">(
+    "normal"
+  ); // 入力状態
 
   // ゲーム開始
   const startGame = () => {
@@ -44,7 +46,6 @@ const App: React.FC = () => {
   // ゲームリセット
   const resetGame = () => {
     setGameStarted(false);
-    setIsTyping(false);
     setCurrentWordIndex(0);
     setShuffledList([]);
     setTyped("");
@@ -94,7 +95,17 @@ const App: React.FC = () => {
       if (newTyped.length === currentCommand.length) {
         setCurrentWordIndex(currentWordIndex + 1);
         setTyped("");
+        setInputStatus("correct");
+        setTimeout(() => {
+          setInputStatus("normal");
+        }, 500);
       }
+    // ミスタイピング
+    } else {
+      setInputStatus("miss");
+      setTimeout(() => {
+        setInputStatus("normal");
+      }, 500);
     }
   };
 
@@ -133,7 +144,7 @@ const App: React.FC = () => {
         ) : (
           <>
             {/* 説明 */}
-            <div className="text-md text-gray-500 tracking-widest mb-4 min-h-10 flex items-end">
+            <div className="text-md text-gray-500 tracking-widest mb-4 min-h-20 flex items-end">
               {currentDescription}
             </div>
             {/* 入力エリア */}
@@ -141,7 +152,15 @@ const App: React.FC = () => {
               <div className="relative">
                 <input
                   type="text"
-                  className="text-2xl p-4 border-2 border-gray-300 rounded-lg w-full bg-transparent text-transparent"
+                  className={`text-2xl p-4 border-2 rounded-lg w-full bg-transparent text-transparent
+                    focus:outline-none focus:ring-2 focus:ring-blue-300
+                    ${
+                    inputStatus === "miss" 
+                      ? "focus:ring-red-300 focus:ring-3" 
+                      : inputStatus === "correct" 
+                      ? "focus:ring-green-300 focus:ring-3" 
+                      : ""
+                  }`}
                   onKeyDown={handleKeyDown}
                   autoFocus
                   readOnly
