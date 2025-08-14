@@ -32,6 +32,7 @@ const App: React.FC = () => {
   const [inputStatus, setInputStatus] = useState<"normal" | "miss" | "correct">(
     "normal"
   ); // 入力状態
+  const [timeLeft, setTimeLeft] = useState(20); // 残り時間
 
   // ゲーム開始
   const startGame = () => {
@@ -49,6 +50,7 @@ const App: React.FC = () => {
     setCurrentWordIndex(0);
     setShuffledList([]);
     setTyped("");
+    setTimeLeft(20);
   };
 
   /**
@@ -77,6 +79,10 @@ const App: React.FC = () => {
   }, [selectedCategory]);
 
   const currentWord = shuffledList[currentWordIndex];
+  // console.log("shuffledList", shuffledList);
+  console.log("shuffledList commands:", shuffledList.map(item => `${item.command} - ${item.description}`));
+  console.log("currentWord", currentWord);
+  console.log("currentWordIndex", currentWordIndex);
   const currentCommand = currentWord?.command || "";
   const currentDescription = currentWord?.description || "";
 
@@ -100,7 +106,7 @@ const App: React.FC = () => {
           setInputStatus("normal");
         }, 500);
       }
-    // ミスタイピング
+      // ミスタイピング
     } else {
       setInputStatus("miss");
       setTimeout(() => {
@@ -109,9 +115,28 @@ const App: React.FC = () => {
     }
   };
 
+  // 改善されたタイマー実装
+  useEffect(() => {
+    if (gameStarted) {
+      const timer = setInterval(() => {
+        // 関数型更新で最新の値を確実に取得
+        setTimeLeft((prevTime) => {
+          // 時間が0になったらゲーム終了処理も可能
+          if (prevTime <= 1) {
+            resetGame(); // ゲーム終了
+            return 0;
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [gameStarted]); // timeLeftを依存配列から除去
+
   return (
     <>
-      <div className="typing-game">
+      <div className="typing-game min-h-[60vh] border-2 border-gray-300 p-4">
         <p className="mb-4">カテゴリーを選択してください</p>
         <div className="flex gap-2 mb-4">
           {Object.entries(categories).map(([key, category]) => {
@@ -131,6 +156,15 @@ const App: React.FC = () => {
               </button>
             );
           })}
+        </div>
+        <div className="flex justify-between items-center mb-8">
+          <div className="bg-gray-200 px-6 py-2 rounded-full min-w-[200px] text-center">
+            {selectedCategory}
+          </div>
+          <div className="text-lg font-bold flex items-center justify-between gap-2">
+            <span>Left Time</span>
+            <span>{timeLeft}</span>
+          </div>
         </div>
 
         {!gameStarted ? (
@@ -155,12 +189,12 @@ const App: React.FC = () => {
                   className={`text-2xl p-4 border-2 rounded-lg w-full bg-transparent text-transparent
                     focus:outline-none focus:ring-2 focus:ring-blue-300
                     ${
-                    inputStatus === "miss" 
-                      ? "focus:ring-red-300 focus:ring-3" 
-                      : inputStatus === "correct" 
-                      ? "focus:ring-green-300 focus:ring-3" 
-                      : ""
-                  }`}
+                      inputStatus === "miss"
+                        ? "focus:ring-red-300 focus:ring-3"
+                        : inputStatus === "correct"
+                        ? "focus:ring-green-300 focus:ring-3"
+                        : ""
+                    }`}
                   onKeyDown={handleKeyDown}
                   autoFocus
                   readOnly
