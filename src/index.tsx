@@ -3,6 +3,16 @@ import React, { useEffect, useState, KeyboardEvent } from "react";
 import { Clock, Play, RotateCcw } from "lucide-react";
 import "./style.css";
 
+// WordPressのREST APIの型定義
+declare global {
+  interface Window {
+    typingGameAPI: {
+      categoriesUrl: string;
+      commandsBaseUrl: string;
+    };
+  }
+}
+
 const App: React.FC = () => {
   type WordEntry = {
     command: string;
@@ -34,7 +44,7 @@ const App: React.FC = () => {
     const loadCategories = async () => {
       try {
         // カテゴリ一覧を取得
-        const categoriesResponse = await fetch('/wp-json/typing-game/v1/categories');
+        const categoriesResponse = await fetch(window.typingGameAPI.categoriesUrl);
         const categoriesData = await categoriesResponse.json();
 
         const newCategories: {[key: string]: {name: string, data: WordEntry[]}} = {
