@@ -54,7 +54,7 @@ const App: React.FC = () => {
         // 各カテゴリのコマンドを取得
         for (const category of categoriesData) {
           try {
-            const commandsResponse = await fetch(`/wp-json/typing-game/v1/commands/${category.slug}`);
+            const commandsResponse = await fetch(`${window.typingGameAPI.commandsBaseUrl}${category.slug}`);
             const commandsData = await commandsResponse.json();
             
             newCategories[category.slug] = {
