@@ -32,3 +32,5 @@ function react_shortcode()
     return '<div id="react-root"></div>';
 }
 add_shortcode('my_react_app', 'react_shortcode');
+
+include_once plugin_dir_path(__FILE__) . 'include/admin-command-registration.php';
