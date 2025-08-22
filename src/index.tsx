@@ -19,7 +19,7 @@ const App: React.FC = () => {
     description: string;
   };
 
-  const [categories, setCategories] = useState<{[key: string]: {name: string, data: WordEntry[]}}>({
+  const [categories, setCategories] = useState<{ [key: string]: { name: string, data: WordEntry[] } }>({
     none: {
       name: "None",
       data: [] as WordEntry[],
@@ -47,7 +47,7 @@ const App: React.FC = () => {
         const categoriesResponse = await fetch(window.typingGameAPI.categoriesUrl);
         const categoriesData = await categoriesResponse.json();
 
-        const newCategories: {[key: string]: {name: string, data: WordEntry[]}} = {
+        const newCategories: { [key: string]: { name: string, data: WordEntry[] } } = {
           none: { name: "None", data: [] },
         };
 
@@ -56,7 +56,7 @@ const App: React.FC = () => {
           try {
             const commandsResponse = await fetch(`${window.typingGameAPI.commandsBaseUrl}${category.slug}`);
             const commandsData = await commandsResponse.json();
-            
+
             newCategories[category.slug] = {
               name: category.name,
               data: commandsData,
@@ -151,6 +151,10 @@ const App: React.FC = () => {
       e.preventDefault();
     }
 
+    if (e.key === "Shift") {
+      return;
+    }
+
     if (e.key === currentCommand[typed.length]) {
       const newTyped = typed + e.key;
       setTyped(newTyped);
@@ -214,11 +218,10 @@ const App: React.FC = () => {
                 <button
                   key={key}
                   onClick={() => setSelectedCategory(key)}
-                  className={`min-w-[100px] text-sm font-bold py-3 px-6 rounded-lg transition-colors duration-200 ${
-                    selectedCategory === key
-                      ? "bg-green-500 text-white border-2 border-green-600"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300 hover:border-gray-400"
-                  }`}
+                  className={`min-w-[100px] text-sm font-bold py-3 px-6 rounded-lg transition-colors duration-200 ${selectedCategory === key
+                    ? "bg-green-500 text-white border-2 border-green-600"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300 hover:border-gray-400"
+                    }`}
                 >
                   {category.name}
                 </button>
@@ -254,9 +257,9 @@ const App: React.FC = () => {
                 onClick={startGame}
                 className={`font-bold text-white py-4 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2 mb-4
                 ${selectedCategory === "none" || !categories[selectedCategory]?.data.length
-                  ? "bg-gray-200 hover:shadow-none cursor-not-allowed"
-                  : "bg-blue-500 hover:bg-blue-600"
-                }`}
+                    ? "bg-gray-200 hover:shadow-none cursor-not-allowed"
+                    : "bg-blue-500 hover:bg-blue-600"
+                  }`}
               >
                 <Play className="w-5 h-5" />
                 Start Game
@@ -276,13 +279,12 @@ const App: React.FC = () => {
                     type="text"
                     className={`text-2xl p-4 border-2 rounded-lg w-full bg-transparent text-transparent
                     focus:outline-none focus:ring-2 focus:ring-blue-300
-                    ${
-                      inputStatus === "miss"
+                    ${inputStatus === "miss"
                         ? "focus:ring-red-300 focus:ring-3"
                         : inputStatus === "correct"
-                        ? "focus:ring-green-300 focus:ring-3"
-                        : ""
-                    }`}
+                          ? "focus:ring-green-300 focus:ring-3"
+                          : ""
+                      }`}
                     onKeyDown={handleKeyDown}
                     autoFocus
                     readOnly
