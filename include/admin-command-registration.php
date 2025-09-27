@@ -193,65 +193,121 @@ function save_typing_commands_meta_box($post_id)
 add_action('save_post', 'save_typing_commands_meta_box');
 
 /**
+ * JSONファイルからコマンドデータを読み込む関数
+ */
+function load_commands_from_json($filename)
+{
+    $plugin_dir = plugin_dir_path(__FILE__);
+    $json_path = $plugin_dir . '../src/words/' . $filename;
+
+    if (file_exists($json_path)) {
+        $json_content = file_get_contents($json_path);
+        $data = json_decode($json_content, true);
+        return $data ? $data : array();
+    }
+
+    return array();
+}
+
+/**
  * 毎回 WP_Query で投稿があるかチェック、なければデフォルトカテゴリを作成
  */
 function create_default_typing_posts()
 {
-    // Git カテゴリの投稿を作成
-    $git_query = new WP_Query(array(
-        'post_type' => 'typing_category',
-        'title' => 'Git',
-        'post_status' => 'publish',
-        'posts_per_page' => 1
-    ));
+    // カテゴリとJSONファイルのマッピング
+    $categories = array(
+        'Git' => 'git_commands.json',
+        'Docker' => 'docker_commands.json',
+        'SSH' => 'ssh_commands.json',
+        'PowerShell' => 'powershell_commands.json',
+        'cURL' => 'curl_commands.json',
+        'JavaScript' => 'javascript_commands.json',
+        'CMD' => 'cmd_commands.json',
+        'Prompt Engineering' => 'prompt_engineering_commands.json'
+    );
 
-    if (!$git_query->have_posts()) {
-        $git_post_id = wp_insert_post(array(
-            'post_title' => 'Git',
+    foreach ($categories as $category_name => $json_file) {
+        $query = new WP_Query(array(
             'post_type' => 'typing_category',
-            'post_status' => 'publish'
+            'title' => $category_name,
+            'post_status' => 'publish',
+            'posts_per_page' => 1
         ));
 
-        if ($git_post_id) {
-            $git_commands = [
-                ['command' => 'git init', 'description' => '新しいGitリポジトリを初期化します。現在のディレクトリに.gitフォルダを作成し、バージョン管理を開始します。'],
-                ['command' => 'git clone', 'description' => 'リモートリポジトリをローカルにコピーします。GitHubやGitLabなどのリモートリポジトリから完全なコピーを作成します。'],
-                ['command' => 'git add .', 'description' => '現在のディレクトリの全ての変更をステージングエリアに追加します。コミット対象に含める変更を準備します。'],
-                ['command' => 'git commit -m', 'description' => 'ステージングエリアの変更をコミットします。-mオプションでコミットメッセージを指定して変更履歴を記録します。'],
-                ['command' => 'git push', 'description' => 'ローカルのコミットをリモートリポジトリにアップロードします。変更をチームメンバーと共有するために使用します。']
-            ];
-            update_post_meta($git_post_id, '_typing_commands', $git_commands);
-        }
-    }
+        if (!$query->have_posts()) {
+            $post_id = wp_insert_post(array(
+                'post_title' => $category_name,
+                'post_type' => 'typing_category',
+                'post_status' => 'publish'
+            ));
 
-    // Docker カテゴリの投稿を作成
-    $docker_query = new WP_Query(array(
-        'post_type' => 'typing_category',
-        'title' => 'Docker',
-        'post_status' => 'publish',
-        'posts_per_page' => 1
-    ));
-
-    if (!$docker_query->have_posts()) {
-        $docker_post_id = wp_insert_post(array(
-            'post_title' => 'Docker',
-            'post_type' => 'typing_category',
-            'post_status' => 'publish'
-        ));
-
-        if ($docker_post_id) {
-            $docker_commands = [
-                ['command' => 'docker ps', 'description' => '現在実行中のDockerコンテナの一覧を表示します。コンテナID、イメージ名、実行時間、ステータス、ポートマッピングなどの情報が確認できます。'],
-                ['command' => 'docker run', 'description' => 'Dockerイメージから新しいコンテナを作成して実行します。ポートマッピング、環境変数、ボリュームマウントなどのオプションを指定できます。'],
-                ['command' => 'docker build', 'description' => 'DockerfileからDockerイメージをビルドします。-tオプションでタグ名を指定し、コンテキストパスを指定してイメージを作成します。'],
-                ['command' => 'docker compose up', 'description' => 'docker-compose.ymlファイルに定義された全てのサービスを起動します。-dオプションでバックグラウンド実行、--buildオプションで強制リビルドが可能です。'],
-                ['command' => 'docker compose down', 'description' => 'docker-compose upで起動したサービスを停止し、コンテナ、ネットワークを削除します。-vオプションでボリュームも削除できます。']
-            ];
-            update_post_meta($docker_post_id, '_typing_commands', $docker_commands);
+            if ($post_id) {
+                $commands = load_commands_from_json($json_file);
+                if (!empty($commands)) {
+                    update_post_meta($post_id, '_typing_commands', $commands);
+                }
+            }
         }
     }
 }
 add_action('init', 'create_default_typing_posts');
+
+/**
+ * 既存のカテゴリのコマンドをJSONファイルから更新する関数
+ */
+function update_existing_categories_from_json()
+{
+    // カテゴリとJSONファイルのマッピング
+    $categories = array(
+        'Git' => 'git_commands.json',
+        'Docker' => 'docker_commands.json',
+        'SSH' => 'ssh_commands.json',
+        'PowerShell' => 'powershell_commands.json',
+        'cURL' => 'curl_commands.json',
+        'JavaScript' => 'javascript_commands.json',
+        'CMD' => 'cmd_commands.json',
+        'Prompt Engineering' => 'prompt_engineering_commands.json'
+    );
+
+    foreach ($categories as $category_name => $json_file) {
+        $posts = get_posts(array(
+            'post_type' => 'typing_category',
+            'title' => $category_name,
+            'post_status' => 'publish',
+            'posts_per_page' => 1
+        ));
+
+        if (!empty($posts)) {
+            $post = $posts[0];
+            $commands = load_commands_from_json($json_file);
+            if (!empty($commands)) {
+                update_post_meta($post->ID, '_typing_commands', $commands);
+            }
+        }
+    }
+}
+
+// 管理画面にJSONファイルから更新するボタンを追加
+function add_json_update_admin_notice()
+{
+    if (isset($_GET['update_from_json']) && $_GET['update_from_json'] === '1') {
+        update_existing_categories_from_json();
+        echo '<div class="notice notice-success"><p>JSONファイルからカテゴリを更新しました。</p></div>';
+    }
+}
+add_action('admin_notices', 'add_json_update_admin_notice');
+
+// 管理画面に更新ボタンを追加
+function add_json_update_button()
+{
+    global $post_type;
+    if ($post_type === 'typing_category') {
+        echo '<div class="wrap">';
+        echo '<a href="' . admin_url('edit.php?post_type=typing_category&update_from_json=1') . '" class="button button-primary">JSONファイルから更新</a>';
+        echo '</div>';
+    }
+}
+add_action('admin_head', 'add_json_update_button');
 
 /**
  * /wp-json/ で始まるURLにアクセスした時、以下のREST APIエンドポイントが有効になる

@@ -1,0 +1,38 @@
+[
+    {
+      "command": "era-nogenninndakeoshietekudasai",
+      "description": "エラーの原因だけ教えてください"
+    },
+    {
+      "command": "syosinsyamukenisetumesitekudasai",
+      "description": "初心者向けに説明してください"
+    },
+    {
+      "command": "sinpurunikaitouonegaisimasu",
+      "description": "シンプルに回答お願いします"
+    },
+    {
+      "command": "minimamunasyuuseideonegaisimasu",
+      "description": "ミニマムな修正でお願いします"
+    },
+    {
+      "command": "ko-donoteiannomaeniautorainnwooshietekudasai",
+      "description": "コードの提案の前にアウトラインを教えてください"
+    },
+    {
+      "command": "komenntowotuketekudasai",
+      "description": "コメントを付けてください"
+    },
+    {
+      "command": "powershelldesiyoudekiruroguwomirukomanndowoosietekudasai",
+      "description": "PowerShellで使用できるログを見るコマンドを教えてください"
+    },
+    {
+      "command": "sumo-rusuteppude1tuzutuonegaisimasu",
+      "description": "スモールステップで一つずつお願いします"
+    },
+    {
+      "command": "huro-zuwoma-meidokihoudesakuseidekimasuka?",
+      "description": "フロー図をマーメイド記法で作成できますか？"
+    }
+]

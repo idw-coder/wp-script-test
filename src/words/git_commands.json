@@ -82,5 +82,17 @@
     {
       "command": "git config --global",
       "description": "Gitの全体設定を行います。ユーザー名やメールアドレスなど、全リポジトリで共通の設定を指定します。"
+    },
+    {
+      "command": "git remote set-url origin git@github.com:example-user/my-project.git",
+      "description": "GitHubでリポジトリ作成→ローカルでGitリポジトリを作成（git init）→このコマンドでリモートリポジトリを登録、初めてローカルリポジトリをGitHubなどに接続するときはgit remote add origin"
+    },
+    {
+      "command": "git merge feature/add-search-function",
+      "description": "開発ブランチをマージする"
+    },
+    {
+      "command": "git checkout -b feature/bedrock-keyword-check",
+      "description": "新しいブランチを作成し、同時にそのブランチに切り替えるためのコマンドです。"
     }
   ]

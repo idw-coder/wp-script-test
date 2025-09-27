@@ -1,0 +1,18 @@
+[
+    {
+      "command": "eval \"$(ssh-agent -s)\"",
+      "description": "ssh-agent -s はソケットの場所を示す SSH_AUTH_SOCK とプロセス番号を示す SSH_AGENT_PID の設定文を出力します。それを $( ) で取得し、eval が実行することで環境変数として反映されます。結果として、ssh-add で秘密鍵を登録し、SSHやGit接続で利用できるようになります。"
+    },
+    {
+      "command": "ls ~/.ssh/ -la",
+      "description": "SSH鍵ファイルの一覧を表示します。秘密鍵（id_rsa）や公開鍵（id_rsa.pub）の存在確認、権限設定の確認に使用します。"
+    },
+    {
+      "command": "ssh-add ~/.ssh/id_rsa",
+      "description": "SSH秘密鍵をssh-agentに登録します。登録後、パスフレーズなしでSSH接続やGit操作が可能になります。"
+    },
+    {
+      "command": "ssh -T git@github.com",
+      "description": "GitHubへのSSH接続テストを実行します。接続が成功すると、GitHubのユーザー名が表示され、SSH鍵の設定が正しいことを確認できます。"
+    }
+]

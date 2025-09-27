@@ -1,0 +1,82 @@
+[
+    {
+      "command": "dir",
+      "description": "現在のディレクトリのファイルとフォルダの一覧を表示します。コマンドプロンプト（CMD）の基本コマンドで、Linuxのlsコマンドに相当します。"
+    },
+    {
+      "command": "cd",
+      "description": "現在のディレクトリを変更します。cd .. で親ディレクトリに移動、cd \\ でルートディレクトリに移動できます。"
+    },
+    {
+      "command": "mkdir",
+      "description": "新しいディレクトリ（フォルダ）を作成します。mkdir folder_name で指定した名前のフォルダを作成できます。"
+    },
+    {
+      "command": "rmdir",
+      "description": "空のディレクトリを削除します。中身があるディレクトリを削除する場合は rmdir /s を使用します。"
+    },
+    {
+      "command": "copy",
+      "description": "ファイルをコピーします。copy source.txt destination.txt でファイルをコピーできます。"
+    },
+    {
+      "command": "move",
+      "description": "ファイルやディレクトリを移動または名前変更します。move old_name.txt new_name.txt で名前変更ができます。"
+    },
+    {
+      "command": "del",
+      "description": "ファイルを削除します。del filename.txt で指定したファイルを削除できます。"
+    },
+    {
+      "command": "type",
+      "description": "テキストファイルの内容を表示します。Linuxのcatコマンドに相当します。"
+    },
+    {
+      "command": "echo",
+      "description": "テキストを画面に表示します。echo Hello World で「Hello World」が表示されます。"
+    },
+    {
+      "command": "cls",
+      "description": "コマンドプロンプトの画面をクリアします。Linuxのclearコマンドに相当します。"
+    },
+    {
+      "command": "ipconfig",
+      "description": "ネットワーク設定情報を表示します。IPアドレス、サブネットマスク、デフォルトゲートウェイなどの情報が確認できます。"
+    },
+    {
+      "command": "ping",
+      "description": "指定したホストへの接続テストを行います。ping google.com でGoogleへの接続をテストできます。"
+    },
+    {
+      "command": "tasklist",
+      "description": "現在実行中のプロセスの一覧を表示します。Linuxのpsコマンドに相当します。"
+    },
+    {
+      "command": "taskkill",
+      "description": "指定したプロセスを終了します。taskkill /PID 1234 で指定したPIDのプロセスを終了できます。"
+    },
+    {
+      "command": "systeminfo",
+      "description": "システムの詳細情報を表示します。OSのバージョン、メモリ、プロセッサなどの情報が確認できます。"
+    },
+    {
+      "command": "shutdown",
+      "description": "システムをシャットダウンします。shutdown /s でシャットダウン、shutdown /r で再起動ができます。"
+    },
+    {
+      "command": "sfc /scannow",
+      "description": "システムファイルチェッカーを実行して、破損したシステムファイルを修復します。"
+    },
+    {
+      "command": "chkdsk",
+      "description": "ディスクのエラーチェックと修復を行います。chkdsk C: /f でCドライブのエラーをチェック・修復できます。"
+    },
+    {
+      "command": "netstat",
+      "description": "ネットワーク接続の状態を表示します。どのポートが使用されているか、どのプロセスが接続しているかが確認できます。"
+    },
+    {
+      "command": "nslookup",
+      "description": "DNS（ドメイン名システム）の情報を調べます。nslookup google.com でGoogleのIPアドレスを調べることができます。"
+    }
+]

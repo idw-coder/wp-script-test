@@ -207,7 +207,7 @@ const App: React.FC = () => {
     <>
       <p className="text-2xl font-bold mb-4">プログラミングタイピングゲーム</p>
       <div className="typing-game min-h-[60vh] border-2 border-gray-300 p-4 flex flex-col">
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 flex-wrap mb-4">
           {Object.entries(categories).map(([key, category]) => {
             if (key !== "none") {
               return (
@@ -272,23 +272,20 @@ const App: React.FC = () => {
               {/* 入力エリア */}
               {currentWord && (
                 <div className="relative">
-                  <input
-                    type="text"
-                    className={`text-2xl p-4 border-2 rounded-lg w-full bg-transparent text-transparent
-                    focus:outline-none focus:ring-2 focus:ring-blue-300
+                  <div
+                    className={`text-2xl p-4 border-2 rounded-lg w-full bg-white min-h-[60px] flex items-center
+                    focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-300
                     ${
                       inputStatus === "miss"
-                        ? "focus:ring-red-300 focus:ring-3"
+                        ? "focus-within:ring-red-300 focus-within:ring-3"
                         : inputStatus === "correct"
-                        ? "focus:ring-green-300 focus:ring-3"
+                        ? "focus-within:ring-green-300 focus-within:ring-3"
                         : ""
                     }`}
+                    tabIndex={0}
                     onKeyDown={handleKeyDown}
-                    autoFocus
-                    readOnly
-                  />
-                  <div className="absolute inset-0 text-2xl p-4 tracking-widest pointer-events-none">
-                    <span className="text-green-500 bg-green-50 pl-1">
+                  >
+                    <span className="text-green-500 bg-green-50 px-1">
                       {typed}
                     </span>
                     <span className="text-gray-500">

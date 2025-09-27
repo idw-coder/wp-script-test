@@ -1,0 +1,18 @@
+[
+    {
+      "command": "Get-ChildItem | Get-Acl | Format-List",
+      "description": "PowerShell の ls コマンド は、実際には Get-ChildItem のエイリアス（別名）です。またLinux では rwx 形式で「所有者／グループ／その他」の 3枠に権限を割り当てますが、Windows では ACL（アクセス制御リスト）方式を採用し、対象ごとに「ユーザーやグループ」と「許可される操作」を複数登録できます。そのため ls では権限は出ず、確認には Get-Acl を使います。"
+    },
+    {
+      "command": "cd C:\\projects\\my-app; code .",
+      "description": "ディレクトリ移動 + VSCode起動 ; セミコロン（順次実行）&& アンド（成功時のみ実行）| パイプ（出力を次の入力へ）"
+    },
+    {
+      "command": "Get-ChildItem -Force",
+      "description": "詳細ファイルリスト表示（ls -la相当）"
+    },
+    {
+      "command": "Get-Content .\\input.txt | node .\\js\\main.js",
+      "description": "Get-Content .\\input.txt → テキストファイルの内容を読み込み | パイプで次のコマンドに出力を渡す"
+    }
+]

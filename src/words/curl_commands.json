@@ -1,0 +1,6 @@
+[
+    {
+      "command": "curl -X POST -d \"data=value\" https://ntorelabo.com",
+      "description": "HTTP POSTリクエストを送信します。-X: HTTPメソッド指定 -d: データ送信。指定されたURLにPOSTデータを送信し、サーバーのレスポンスを取得します。"
+    }
+]
