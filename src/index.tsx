@@ -2,8 +2,16 @@ import { createRoot } from "react-dom/client";
 import React, { useEffect, useState, KeyboardEvent } from "react";
 import { Clock, Play, RotateCcw } from "lucide-react";
 import "./style.css";
-import gitCommands from "./words/git_commands.json";
-import dockerCommands from "./words/docker_commands.json";
+
+// WordPressのREST APIの型定義
+declare global {
+  interface Window {
+    typingGameAPI: {
+      categoriesUrl: string;
+      commandsBaseUrl: string;
+    };
+  }
+}
 
 const App: React.FC = () => {
   type WordEntry = {
@@ -11,42 +19,69 @@ const App: React.FC = () => {
     description: string;
   };
 
-  const categories = {
+  const [categories, setCategories] = useState<{[key: string]: {name: string, data: WordEntry[]}}>({
     none: {
       name: "None",
       data: [] as WordEntry[],
     },
-    git: {
-      name: "Git",
-      data: gitCommands as WordEntry[],
-    },
-    docker: {
-      name: "Docker",
-      data: dockerCommands as WordEntry[],
-    },
-  };
+  });
 
   const defaultTime = 120;
 
   /* 状態管理 */
-  const [selectedCategory, setSelectedCategory] =
-    useState<keyof typeof categories>("none"); // カテゴリー
-  const [gameStatus, setGameStatus] = useState<"ready" | "playing" | "end">(
-    "ready"
-  );
-  const [shuffledList, setShuffledList] = useState<WordEntry[]>([]); // シャッフルされたリスト
-  const [currentWordIndex, setCurrentWordIndex] = useState(0); // 現在の単語のインデックス
-  const [typed, setTyped] = useState(""); // どの文字まで正しくタイプされたか
-  const [inputStatus, setInputStatus] = useState<"normal" | "miss" | "correct">(
-    "normal"
-  ); // 入力状態
-  const [timeLeft, setTimeLeft] = useState(defaultTime); // 残り時間
-  const [score, setScore] = useState(0); // スコア
-  const [missCount, setMissCount] = useState(0); // ミス数
+  const [selectedCategory, setSelectedCategory] = useState<string>("none");
+  const [gameStatus, setGameStatus] = useState<"ready" | "playing" | "end">("ready");
+  const [shuffledList, setShuffledList] = useState<WordEntry[]>([]);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [typed, setTyped] = useState("");
+  const [inputStatus, setInputStatus] = useState<"normal" | "miss" | "correct">("normal");
+  const [timeLeft, setTimeLeft] = useState(defaultTime);
+  const [score, setScore] = useState(0);
+  const [missCount, setMissCount] = useState(0);
+
+  // WordPressのREST APIからカテゴリとコマンドを取得
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        // カテゴリ一覧を取得
+        const categoriesResponse = await fetch(window.typingGameAPI.categoriesUrl);
+        const categoriesData = await categoriesResponse.json();
+
+        const newCategories: {[key: string]: {name: string, data: WordEntry[]}} = {
+          none: { name: "None", data: [] },
+        };
+
+        // 各カテゴリのコマンドを取得
+        for (const category of categoriesData) {
+          try {
+            const commandsResponse = await fetch(`${window.typingGameAPI.commandsBaseUrl}${category.slug}`);
+            const commandsData = await commandsResponse.json();
+            
+            newCategories[category.slug] = {
+              name: category.name,
+              data: commandsData,
+            };
+          } catch (error) {
+            console.error(`Error loading commands for ${category.slug}:`, error);
+            newCategories[category.slug] = {
+              name: category.name,
+              data: [],
+            };
+          }
+        }
+
+        setCategories(newCategories);
+      } catch (error) {
+        console.error('Error loading categories:', error);
+      }
+    };
+
+    loadCategories();
+  }, []);
 
   // ゲーム開始
   const startGame = () => {
-    if (selectedCategory === "none") {
+    if (selectedCategory === "none" || !categories[selectedCategory]?.data.length) {
       return;
     }
     if (shuffledList.length === 0) {
@@ -58,7 +93,7 @@ const App: React.FC = () => {
   };
 
   // ゲームリセット
-  const resetGame = (gameStatus: "ready" | "playing" | "end" = "ready", selectedCategory: keyof typeof categories = "none") => {
+  const resetGame = (gameStatus: "ready" | "playing" | "end" = "ready", selectedCategory: string = "none") => {
     setGameStatus(gameStatus);
     setCurrentWordIndex(0);
     setShuffledList([]);
@@ -91,10 +126,12 @@ const App: React.FC = () => {
   // カテゴリー変更
   useEffect(() => {
     resetGame("ready", selectedCategory);
-    const selectedCategoryList = categories[selectedCategory].data;
-    const shuffledList = shuffleList(selectedCategoryList);
-    setShuffledList(shuffledList);
-  }, [selectedCategory]);
+    if (selectedCategory !== "none" && categories[selectedCategory]?.data) {
+      const selectedCategoryList = categories[selectedCategory].data;
+      const shuffledList = shuffleList(selectedCategoryList);
+      setShuffledList(shuffledList);
+    }
+  }, [selectedCategory, categories]);
 
   const currentWord = shuffledList[currentWordIndex];
   // console.log("shuffledList", shuffledList);
@@ -128,6 +165,13 @@ const App: React.FC = () => {
         setTimeout(() => {
           setInputStatus("normal");
         }, 500);
+
+        if (currentWordIndex === shuffledList.length - 1) {
+          // 同じカテゴリーの再シャッフルした内容を追加
+          const selectedCategoryList = categories[selectedCategory].data;
+          const newShuffledList = shuffleList(selectedCategoryList);
+          setShuffledList(prev => [...prev, ...newShuffledList]);
+        }
       }
       // ミスタイピング
     } else {
@@ -169,15 +213,13 @@ const App: React.FC = () => {
               return (
                 <button
                   key={key}
-                  onClick={() =>
-                    setSelectedCategory(key as keyof typeof categories)
-                }
-                className={`min-w-[100px] text-sm font-bold py-3 px-6 rounded-lg transition-colors duration-200 ${
-                  selectedCategory === key
-                    ? "bg-green-500 text-white border-2 border-green-600"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300 hover:border-gray-400"
-                }`}
-              >
+                  onClick={() => setSelectedCategory(key)}
+                  className={`min-w-[100px] text-sm font-bold py-3 px-6 rounded-lg transition-colors duration-200 ${
+                    selectedCategory === key
+                      ? "bg-green-500 text-white border-2 border-green-600"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300 hover:border-gray-400"
+                  }`}
+                >
                   {category.name}
                 </button>
               );
@@ -202,16 +244,16 @@ const App: React.FC = () => {
         <div className="flex-1 flex items-center justify-center">
           {gameStatus === "ready" && (
             <div className="flex flex-col items-center gap-4">
-                             <p className="text-xl">
-                 {selectedCategory === "none"
-                   ? "カテゴリーを選択してください"
-                   : <><span className="font-bold text-2xl">{categories[selectedCategory].name}</span>で開始します</>}
-               </p>
+              <p className="text-xl">
+                {selectedCategory === "none"
+                  ? "カテゴリーを選択してください"
+                  : <><span className="font-bold text-2xl">{categories[selectedCategory]?.name}</span>で開始します</>}
+              </p>
 
               <button
                 onClick={startGame}
                 className={`font-bold text-white py-4 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2 mb-4
-                ${selectedCategory === "none"
+                ${selectedCategory === "none" || !categories[selectedCategory]?.data.length
                   ? "bg-gray-200 hover:shadow-none cursor-not-allowed"
                   : "bg-blue-500 hover:bg-blue-600"
                 }`}

@@ -17,6 +17,12 @@ function enqueue_react_app()
         true
     );
 
+    // REST APIのURLをJavaScriptに渡す
+    wp_localize_script('my-react-app', 'typingGameAPI', array(
+        'categoriesUrl' => get_rest_url(null, 'typing-game/v1/categories'),
+        'commandsBaseUrl' => get_rest_url(null, 'typing-game/v1/commands/')
+    ));
+
     wp_enqueue_style(
         'my-react-app-style',
         plugin_dir_url(__FILE__) . 'build/style-index.css',
@@ -32,3 +38,5 @@ function react_shortcode()
     return '<div id="react-root"></div>';
 }
 add_shortcode('my_react_app', 'react_shortcode');
+
+include_once plugin_dir_path(__FILE__) . 'include/admin-command-registration.php';
