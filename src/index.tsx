@@ -151,6 +151,19 @@ const App: React.FC = () => {
       e.preventDefault();
     }
 
+    // シフトキーは無視
+    if (e.key === "Shift") {
+      return;
+    }
+
+    // SQLカテゴリの場合は大文字小文字を無視
+    // const isSqlCategory = selectedCategory === 'sql';
+    // const expectedChar = currentCommand[typed.length];
+    // const isCorrect = isSqlCategory 
+    //   ? e.key.toLowerCase() === expectedChar.toLowerCase()
+    //   : e.key === expectedChar;
+
+    // if (isCorrect) {
     if (e.key === currentCommand[typed.length]) {
       const newTyped = typed + e.key;
       setTyped(newTyped);
@@ -273,6 +286,9 @@ const App: React.FC = () => {
               {currentWord && (
                 <div className="relative">
                   <div
+                    style={{
+                      fontFamily: 'monospace',
+                    }}
                     className={`text-2xl p-4 border-2 rounded-lg w-full bg-white min-h-[60px] flex items-center
                     focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-300
                     ${

@@ -34,5 +34,9 @@
     {
       "command": "huro-zuwoma-meidokihoudesakuseidekimasuka?",
       "description": "フロー図をマーメイド記法で作成できますか？"
+    },
+    {
+      "command": "okusokudeteiannwosezuni,gennzainoko-dowomisetekudasaitoittekudasai",
+      "description": "憶測で提案をせずに、現在のコードを見せてくださいと言ってください"
     }
 ]

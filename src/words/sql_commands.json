@@ -1,0 +1,98 @@
+[
+    {
+      "command": "SELECT * FROM table_name",
+      "description": "指定したテーブルから全ての列のデータを取得します。WHERE句で条件を指定して絞り込みも可能です。"
+    },
+    {
+      "command": "SELECT column1, column2 FROM table_name",
+      "description": "指定したテーブルから特定の列のみを取得します。必要な列だけを選択することでパフォーマンスを向上させます。"
+    },
+    {
+      "command": "INSERT INTO table_name (column1, column2) VALUES (value1, value2)",
+      "description": "テーブルに新しいレコードを挿入します。指定した列に値を設定し、新しい行を追加します。"
+    },
+    {
+      "command": "UPDATE table_name SET column1 = value1 WHERE condition",
+      "description": "既存のレコードを更新します。WHERE句で条件を指定して、特定の行のみを更新できます。"
+    },
+    {
+      "command": "DELETE FROM table_name WHERE condition",
+      "description": "指定した条件に一致するレコードを削除します。WHERE句を忘れると全データが削除されるので注意が必要です。"
+    },
+    {
+      "command": "CREATE TABLE table_name (id INT PRIMARY KEY, name VARCHAR(255))",
+      "description": "新しいテーブルを作成します。列の名前、データ型、制約（PRIMARY KEY、NOT NULL等）を定義します。"
+    },
+    {
+      "command": "DROP TABLE table_name",
+      "description": "指定したテーブルを完全に削除します。テーブルとその中の全データが失われるので慎重に実行してください。"
+    },
+    {
+      "command": "ALTER TABLE table_name ADD COLUMN new_column VARCHAR(100)",
+      "description": "既存のテーブルに新しい列を追加します。テーブル構造を変更する際に使用します。"
+    },
+    {
+      "command": "SELECT * FROM table_name WHERE column = 'value'",
+      "description": "WHERE句を使用して条件に一致するレコードのみを取得します。等価比較（=）で特定の値を検索します。"
+    },
+    {
+      "command": "SELECT * FROM table_name WHERE column LIKE '%pattern%'",
+      "description": "LIKE演算子を使用してパターンマッチング検索を行います。%は任意の文字列を表し、部分一致検索が可能です。"
+    },
+    {
+      "command": "SELECT * FROM table_name ORDER BY column ASC",
+      "description": "ORDER BY句を使用して結果を並び替えます。ASCは昇順（小さい順）、DESCは降順（大きい順）で並び替えます。"
+    },
+    {
+      "command": "SELECT * FROM table_name LIMIT 10",
+      "description": "LIMIT句を使用して取得するレコード数を制限します。大量のデータから必要な分だけ取得してパフォーマンスを向上させます。"
+    },
+    {
+      "command": "SELECT COUNT(*) FROM table_name",
+      "description": "COUNT関数を使用してレコード数を取得します。テーブル内の行数を数える際に使用します。"
+    },
+    {
+      "command": "SELECT column, COUNT(*) FROM table_name GROUP BY column",
+      "description": "GROUP BY句を使用してデータをグループ化し、各グループの集計を行います。COUNT、SUM、AVGなどの集計関数と組み合わせて使用します。"
+    },
+    {
+      "command": "SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.table1_id",
+      "description": "INNER JOINを使用して複数のテーブルを結合します。両方のテーブルに共通するデータのみを取得します。"
+    },
+    {
+      "command": "SELECT * FROM table1 LEFT JOIN table2 ON table1.id = table2.table1_id",
+      "description": "LEFT JOINを使用して左のテーブルの全レコードと、右のテーブルの対応するレコードを取得します。右のテーブルにデータがない場合はNULLが表示されます。"
+    },
+    {
+      "command": "SELECT DISTINCT column FROM table_name",
+      "description": "DISTINCT句を使用して重複を除いた一意の値を取得します。同じ値が複数ある場合でも、1つだけ表示されます。"
+    },
+    {
+      "command": "SELECT * FROM table_name WHERE column BETWEEN value1 AND value2",
+      "description": "BETWEEN演算子を使用して範囲検索を行います。指定した値の範囲内にあるレコードを取得します。"
+    },
+    {
+      "command": "SELECT * FROM table_name WHERE column IN ('value1', 'value2', 'value3')",
+      "description": "IN演算子を使用して複数の値の中から一致するレコードを取得します。OR条件を簡潔に記述できます。"
+    },
+    {
+      "command": "SHOW TABLES",
+      "description": "現在のデータベース内の全てのテーブル一覧を表示します。データベースの構造を確認する際に使用します。"
+    },
+    {
+      "command": "DESCRIBE table_name",
+      "description": "指定したテーブルの構造（列名、データ型、制約等）を表示します。テーブルの詳細情報を確認する際に使用します。"
+    },
+    {
+      "command": "USE database_name",
+      "description": "使用するデータベースを切り替えます。複数のデータベースがある場合に、作業対象のデータベースを指定します。"
+    },
+    {
+      "command": "CREATE DATABASE database_name",
+      "description": "新しいデータベースを作成します。プロジェクト用のデータベースを新規作成する際に使用します。"
+    },
+    {
+      "command": "DROP DATABASE database_name",
+      "description": "指定したデータベースを完全に削除します。データベースとその中の全データが失われるので慎重に実行してください。"
+    }
+]

@@ -49,6 +49,6 @@
     },
     {
       "command": "numbers.reduce((total, current) => total + current, 0)",
-      "description": "配列の要素の合計を求める方法"
+      "description": "配列の要素の合計を求める方法に使用できます。配列.reduce(function(累積値, 要素) { })"
     }
 ]

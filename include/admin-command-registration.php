@@ -223,7 +223,8 @@ function create_default_typing_posts()
         'cURL' => 'curl_commands.json',
         'JavaScript' => 'javascript_commands.json',
         'CMD' => 'cmd_commands.json',
-        'Prompt Engineering' => 'prompt_engineering_commands.json'
+        'Prompt Engineering' => 'prompt_engineering_commands.json',
+        'SQL' => 'sql_commands.json'
     );
 
     foreach ($categories as $category_name => $json_file) {
@@ -266,7 +267,8 @@ function update_existing_categories_from_json()
         'cURL' => 'curl_commands.json',
         'JavaScript' => 'javascript_commands.json',
         'CMD' => 'cmd_commands.json',
-        'Prompt Engineering' => 'prompt_engineering_commands.json'
+        'Prompt Engineering' => 'prompt_engineering_commands.json',
+        'SQL' => 'sql_commands.json'
     );
 
     foreach ($categories as $category_name => $json_file) {
