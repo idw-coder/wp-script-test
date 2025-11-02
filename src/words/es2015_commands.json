@@ -1,0 +1,79 @@
+[
+    {
+      "command": "import express from 'express'",
+      "description": "ES2015で導入されたモジュールシステム。import/exportを使用してモジュールをインポート・エクスポートできます。import express from 'express' でexpressモジュールをデフォルトエクスポートとしてインポートします。"
+    },
+    {
+      "command": "export const name = 'Tom'",
+      "description": "モジュールから変数や関数をエクスポートします。export const name = 'Tom' でname変数をエクスポートし、他のモジュールでimportして使用できます。"
+    },
+    {
+      "command": "const name = 'Tom'",
+      "description": "ES2015で導入されたブロックスコープ変数。constは再代入不可の定数、letは再代入可能な変数を宣言します。varと異なり、ブロックスコープ（{}内）でのみ有効です。"
+    },
+    {
+      "command": "let count = 0",
+      "description": "ブロックスコープを持つ再代入可能な変数。let count = 0 で宣言した変数は、同じブロック内で再代入できますが、ブロック外からはアクセスできません。"
+    },
+    {
+      "command": "(x) => x * 2",
+      "description": "ES2015で導入されたアロー関数。短い関数の書き方で、functionキーワードを使わずに記述できます。(x) => x * 2 は引数xを2倍にして返す関数です。"
+    },
+    {
+      "command": "const double = (x) => x * 2",
+      "description": "アロー関数を変数に代入する例。const double = (x) => x * 2 でdouble関数を定義し、double(5)で10を返します。"
+    },
+    {
+      "command": "`Hello ${name}`",
+      "description": "ES2015で導入されたテンプレート文字列。バッククォート（`）で囲み、${変数名}で変数を埋め込めます。const name = 'Tom'; `Hello ${name}` で「Hello Tom」が生成されます。"
+    },
+    {
+      "command": "`Price: ${price * 1.1} yen`",
+      "description": "テンプレート文字列内で式を評価できます。`Price: ${price * 1.1} yen` で価格に1.1をかけた値が文字列に埋め込まれます。"
+    },
+    {
+      "command": "const { name, age } = user",
+      "description": "分割代入（Destructuring Assignment）。オブジェクトや配列から変数を一度に取り出せます。const { name, age } = user でuserオブジェクトのnameとageプロパティを変数として取り出します。"
+    },
+    {
+      "command": "const [first, second] = array",
+      "description": "配列の分割代入。const [first, second] = array で配列の最初と2番目の要素を変数として取り出します。"
+    },
+    {
+      "command": "fetch().then()",
+      "description": "Promiseを使用した非同期処理。ES2015で導入されたPromiseオブジェクトにより、非同期処理をより読みやすく記述できます。fetch().then(response => response.json()) でHTTPリクエストを送信し、レスポンスを処理します。"
+    },
+    {
+      "command": "new Promise((resolve, reject) => { })",
+      "description": "Promiseオブジェクトの作成。new Promise((resolve, reject) => { }) で新しいPromiseを作成し、非同期処理の成功時にresolve、失敗時にrejectを呼び出します。"
+    },
+    {
+      "command": "class User { }",
+      "description": "ES2015で導入されたクラス構文。オブジェクト指向プログラミングをサポートします。class User { } でUserクラスを定義し、constructor()で初期化、メソッドを定義できます。"
+    },
+    {
+      "command": "class User { constructor(name) { this.name = name; } }",
+      "description": "クラスのコンストラクタとメソッド。class User { constructor(name) { this.name = name; } } でUserクラスを定義し、new User('Tom')でインスタンスを作成できます。"
+    },
+    {
+      "command": "function add(a, b = 0)",
+      "description": "デフォルト引数。関数の引数に初期値を設定できます。function add(a, b = 0) で、bが指定されない場合は0が使用されます。add(5)はadd(5, 0)と同じ結果になります。"
+    },
+    {
+      "command": "function greet(name = 'Guest')",
+      "description": "デフォルト引数の例。function greet(name = 'Guest') で、nameが指定されない場合は'Guest'が使用されます。greet()はgreet('Guest')と同じ結果になります。"
+    },
+    {
+      "command": "[...array]",
+      "description": "スプレッド構文（Spread Operator）。配列やオブジェクトを展開できます。[...array] で配列の全ての要素を展開し、新しい配列を作成できます。const newArray = [...oldArray, 4, 5] で既存の配列に要素を追加できます。"
+    },
+    {
+      "command": "const newObj = { ...oldObj, newProp: 'value' }",
+      "description": "オブジェクトのスプレッド構文。const newObj = { ...oldObj, newProp: 'value' } で既存のオブジェクトの全てのプロパティをコピーし、新しいプロパティを追加できます。"
+    },
+    {
+      "command": "const merged = [...arr1, ...arr2]",
+      "description": "スプレッド構文で配列を結合。const merged = [...arr1, ...arr2] で2つの配列を結合して新しい配列を作成できます。元の配列は変更されません。"
+    }
+]
+
