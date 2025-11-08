@@ -1,0 +1,182 @@
+[
+    {
+        "command": "otsukaresama desu",
+        "description": "おつかれさまです。メールの冒頭でよく使われる挨拶です。"
+    },
+    {
+        "command": "onegai shimasu",
+        "description": "おねがいします。依頼やお願いをする際に使います。"
+    },
+    {
+        "command": "arigatou gozaimasu",
+        "description": "ありがとうございます。感謝を伝える際に使います。"
+    },
+    {
+        "command": "yoroshiku onegai shimasu",
+        "description": "よろしくおねがいします。初めての連絡や依頼の際に使います。"
+    },
+    {
+        "command": "shitsurei shimasu",
+        "description": "しつれいします。メールの終わりに使うことが多いです。"
+    },
+    {
+        "command": "shitsurei itashimasu",
+        "description": "しつれいいたします。より丁寧な表現です。"
+    },
+    {
+        "command": "kashikomarimashita",
+        "description": "かしこまりました。了解したことを伝える際に使います。"
+    },
+    {
+        "command": "wakarimashita",
+        "description": "わかりました。理解したことを伝える際に使います。"
+    },
+    {
+        "command": "moushiwake gozaimasen",
+        "description": "もうしわけございません。謝罪やお詫びをする際に使います。"
+    },
+    {
+        "command": "kekkou desu",
+        "description": "けっこうです。丁寧に断る際に使います。"
+    },
+    {
+        "command": "osoreirimasu",
+        "description": "おそれいります。依頼や質問をする際の前置きとして使います。"
+    },
+    {
+        "command": "taihen osewa ni natte orimasu",
+        "description": "たいへんおせわになっております。日頃の感謝を伝える際に使います。"
+    },
+    {
+        "command": "kono tabi wa arigatou gozaimashita",
+        "description": "このたびはありがとうございました。特定の出来事への感謝を伝える際に使います。"
+    },
+    {
+        "command": "soredewa yoroshiku onegai shimasu",
+        "description": "それではよろしくおねがいします。メールの締めくくりに使います。"
+    },
+    {
+        "command": "soredewa shitsurei shimasu",
+        "description": "それではしつれいします。メールの終わりに使います。"
+    },
+    {
+        "command": "go kentou no ue go henji kudasai",
+        "description": "ごけんとうのうえごへんじください。検討を依頼する際に使います。"
+    },
+    {
+        "command": "go renraku kudasai",
+        "description": "ごれんらくください。連絡を依頼する際に使います。"
+    },
+    {
+        "command": "go renraku itashimasu",
+        "description": "ごれんらくいたします。連絡することを伝える際に使います。"
+    },
+    {
+        "command": "go shousai wo oshiete kudasai",
+        "description": "ごしょうさいをおしえてください。詳細を教えてほしい際に使います。"
+    },
+    {
+        "command": "go shousai wo oshiete itadakemasu ka",
+        "description": "ごしょうさいをおしえていただけますか。より丁寧に詳細を尋ねる際に使います。"
+    },
+    {
+        "command": "itsu goro ga yoroshii desu ka",
+        "description": "いつごろがよろしいですか。日程を確認する際に使います。"
+    },
+    {
+        "command": "itsu goro ga gozaimasu ka",
+        "description": "いつごろがございますか。より丁寧に日程を確認する際に使います。"
+    },
+    {
+        "command": "kakunin onegai shimasu",
+        "description": "かくにんおねがいします。確認を依頼する際に使います。"
+    },
+    {
+        "command": "kakunin no ue go henji kudasai",
+        "description": "かくにんのうえごへんじください。確認後に返信を依頼する際に使います。"
+    },
+    {
+        "command": "henji wo omachi shite orimasu",
+        "description": "へんじをおまちしております。返信を待っていることを伝える際に使います。"
+    },
+    {
+        "command": "henji wo omachi shite itashimasu",
+        "description": "へんじをおまちいたします。より丁寧に返信を待つことを伝える際に使います。"
+    },
+    {
+        "command": "saki hodo wa osewa ni narimashita",
+        "description": "さきほどはおせわになりました。先ほどの出来事への感謝を伝える際に使います。"
+    },
+    {
+        "command": "kono tabi wa go meiwaku wo okake shite moushiwake gozaimasen",
+        "description": "このたびはごめいわくをおかけしてもうしわけございません。迷惑をかけたことへの謝罪です。"
+    },
+    {
+        "command": "kono tabi wa go meiwaku wo okake shite shinpai wo okake shite moushiwake gozaimasen",
+        "description": "このたびはごめいわくをおかけしてしんぱいをおかけしてもうしわけございません。より丁寧な謝罪の表現です。"
+    },
+    {
+        "command": "kono tabi wa go meiwaku wo okake shite moushiwake gozaimasen deshita",
+        "description": "このたびはごめいわくをおかけしてもうしわけございませんでした。過去の出来事への謝罪です。"
+    },
+    {
+        "command": "kono tabi wa go meiwaku wo okake shite moushiwake arimasen",
+        "description": "このたびはごめいわくをおかけしてもうしわけありません。ややカジュアルな謝罪の表現です。"
+    },
+    {
+        "command": "kono tabi wa go meiwaku wo okake shite moushiwake arimasen deshita",
+        "description": "このたびはごめいわくをおかけしてもうしわけありませんでした。ややカジュアルな過去の出来事への謝罪です。"
+    },
+    {
+        "command": "douzo yoroshiku onegai shimasu",
+        "description": "どうぞよろしくおねがいします。より丁寧な依頼の表現です。"
+    },
+    {
+        "command": "doumo arigatou gozaimasu",
+        "description": "どうもありがとうございます。感謝を伝える際に使います。"
+    },
+    {
+        "command": "doumo arigatou gozaimashita",
+        "description": "どうもありがとうございました。過去の出来事への感謝を伝える際に使います。"
+    },
+    {
+        "command": "hontou ni arigatou gozaimasu",
+        "description": "ほんとうにありがとうございます。より強調した感謝の表現です。"
+    },
+    {
+        "command": "hontou ni arigatou gozaimashita",
+        "description": "ほんとうにありがとうございました。より強調した過去の出来事への感謝の表現です。"
+    },
+    {
+        "command": "itsu demo go renraku kudasai",
+        "description": "いつでもごれんらくください。いつでも連絡してほしいことを伝える際に使います。"
+    },
+    {
+        "command": "itsu demo go renraku itashimasu",
+        "description": "いつでもごれんらくいたします。いつでも連絡することを伝える際に使います。"
+    },
+    {
+        "command": "itsu demo go renraku kudasaimase",
+        "description": "いつでもごれんらくくださいませ。より丁寧にいつでも連絡してほしいことを伝える際に使います。"
+    },
+    {
+        "command": "mata go renraku shimasu",
+        "description": "またごれんらくします。また連絡することを伝える際に使います。"
+    },
+    {
+        "command": "mata go renraku itashimasu",
+        "description": "またごれんらくいたします。より丁寧にまた連絡することを伝える際に使います。"
+    },
+    {
+        "command": "mata go renraku sasete itadakimasu",
+        "description": "またごれんらくさせていただきます。より丁寧にまた連絡することを伝える際に使います。"
+    },
+    {
+        "command": "mata go renraku sasete itadakemasu ka",
+        "description": "またごれんらくさせていただけますか。また連絡してもいいか尋ねる際に使います。"
+    },
+    {
+        "command": "mata go renraku sasete itadakemasu deshou ka",
+        "description": "またごれんらくさせていただけますでしょうか。より丁寧にまた連絡してもいいか尋ねる際に使います。"
+    }
+]

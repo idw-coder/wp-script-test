@@ -226,7 +226,8 @@ function create_default_typing_posts()
         'Prompt Engineering' => 'prompt_engineering_commands.json',
         'SQL' => 'sql_commands.json',
         'ES2015' => 'es2015_commands.json',
-        'Laravel' => 'laravel_commands.json'
+        'Laravel' => 'laravel_commands.json',
+        'Email' => 'email_phrases.json'
     );
 
     foreach ($categories as $category_name => $json_file) {
@@ -272,7 +273,8 @@ function update_existing_categories_from_json()
         'Prompt Engineering' => 'prompt_engineering_commands.json',
         'SQL' => 'sql_commands.json',
         'ES2015' => 'es2015_commands.json',
-        'Laravel' => 'laravel_commands.json'
+        'Laravel' => 'laravel_commands.json',
+        'Email' => 'email_phrases.json'
     );
 
     foreach ($categories as $category_name => $json_file) {
