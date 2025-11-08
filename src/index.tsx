@@ -13,6 +13,48 @@ declare global {
   }
 }
 
+// カテゴリーごとのイメージカラーを定義
+const getCategoryColor = (slug: string): { bg: string; text: string; selectedBg: string; selectedText: string } => {
+  const colorMap: { [key: string]: { bg: string; text: string; selectedBg: string; selectedText: string } } = {
+    'git': { bg: 'bg-orange-100', text: 'text-orange-700', selectedBg: 'bg-orange-500', selectedText: 'text-white' },
+    'docker': { bg: 'bg-blue-100', text: 'text-blue-700', selectedBg: 'bg-blue-500', selectedText: 'text-white' },
+    'ssh': { bg: 'bg-gray-100', text: 'text-gray-700', selectedBg: 'bg-gray-500', selectedText: 'text-white' },
+    'powershell': { bg: 'bg-indigo-100', text: 'text-indigo-700', selectedBg: 'bg-indigo-500', selectedText: 'text-white' },
+    'curl': { bg: 'bg-green-100', text: 'text-green-700', selectedBg: 'bg-green-500', selectedText: 'text-white' },
+    'javascript': { bg: 'bg-yellow-100', text: 'text-yellow-700', selectedBg: 'bg-yellow-500', selectedText: 'text-white' },
+    'cmd': { bg: 'bg-slate-100', text: 'text-slate-700', selectedBg: 'bg-slate-500', selectedText: 'text-white' },
+    'prompt-engineering': { bg: 'bg-purple-100', text: 'text-purple-700', selectedBg: 'bg-purple-500', selectedText: 'text-white' },
+    'sql': { bg: 'bg-cyan-100', text: 'text-cyan-700', selectedBg: 'bg-cyan-500', selectedText: 'text-white' },
+    'es2015': { bg: 'bg-amber-100', text: 'text-amber-700', selectedBg: 'bg-amber-500', selectedText: 'text-white' },
+    'laravel': { bg: 'bg-red-100', text: 'text-red-700', selectedBg: 'bg-red-500', selectedText: 'text-white' },
+  };
+
+  // 既知のカテゴリーの場合はその色を返す
+  if (colorMap[slug]) {
+    return colorMap[slug];
+  }
+
+  // 新しいカテゴリーの場合はslugからハッシュを生成して色を割り当て
+  const colors = [
+    { bg: 'bg-pink-100', text: 'text-pink-700', selectedBg: 'bg-pink-500', selectedText: 'text-white' },
+    { bg: 'bg-teal-100', text: 'text-teal-700', selectedBg: 'bg-teal-500', selectedText: 'text-white' },
+    { bg: 'bg-lime-100', text: 'text-lime-700', selectedBg: 'bg-lime-500', selectedText: 'text-white' },
+    { bg: 'bg-emerald-100', text: 'text-emerald-700', selectedBg: 'bg-emerald-500', selectedText: 'text-white' },
+    { bg: 'bg-violet-100', text: 'text-violet-700', selectedBg: 'bg-violet-500', selectedText: 'text-white' },
+    { bg: 'bg-fuchsia-100', text: 'text-fuchsia-700', selectedBg: 'bg-fuchsia-500', selectedText: 'text-white' },
+    { bg: 'bg-rose-100', text: 'text-rose-700', selectedBg: 'bg-rose-500', selectedText: 'text-white' },
+    { bg: 'bg-sky-100', text: 'text-sky-700', selectedBg: 'bg-sky-500', selectedText: 'text-white' },
+  ];
+
+  // slugからハッシュ値を生成
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = slug.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % colors.length;
+  return colors[index];
+};
+
 const App: React.FC = () => {
   type WordEntry = {
     command: string;
@@ -220,17 +262,19 @@ const App: React.FC = () => {
     <>
       <p className="text-2xl font-bold mb-4">プログラミングタイピングゲーム</p>
       <div className="typing-game min-h-[60vh] border-2 border-gray-300 p-4 flex flex-col">
-        <div className="flex gap-2 flex-wrap mb-4">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(6rem,1fr))] gap-2 mb-4">
           {Object.entries(categories).map(([key, category]) => {
             if (key !== "none") {
+              const colors = getCategoryColor(key);
+              const isSelected = selectedCategory === key;
               return (
                 <button
                   key={key}
                   onClick={() => setSelectedCategory(key)}
-                  className={`min-w-[100px] text-sm font-bold py-3 px-6 rounded-lg transition-colors duration-200 ${
-                    selectedCategory === key
-                      ? "bg-green-500 text-white border-2 border-green-600"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300 hover:border-gray-400"
+                  className={`h-[3rem] px-2 py-2 text-sm font-medium text-center whitespace-normal leading-tight rounded shadow-sm hover:shadow active:scale-95 transition-all duration-200 flex items-center justify-center cursor-pointer ${
+                    isSelected
+                      ? `${colors.selectedBg} ${colors.selectedText} shadow-md`
+                      : `${colors.bg} ${colors.text}`
                   }`}
                 >
                   {category.name}
