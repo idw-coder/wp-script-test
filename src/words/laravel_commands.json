@@ -1,0 +1,151 @@
+[
+    {
+      "command": "php artisan serve",
+      "description": "Laravelアプリケーションの開発サーバーを起動します。デフォルトでhttp://localhost:8000でアクセスできます。"
+    },
+    {
+      "command": "php artisan make:controller",
+      "description": "新しいコントローラークラスを作成します。リクエスト処理のロジックを記述するクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:model",
+      "description": "新しいEloquentモデルクラスを作成します。データベーステーブルと対話するためのモデルを生成します。"
+    },
+    {
+      "command": "php artisan make:migration",
+      "description": "新しいデータベースマイグレーションファイルを作成します。データベーススキーマの変更を管理するためのファイルを生成します。"
+    },
+    {
+      "command": "php artisan migrate",
+      "description": "未実行のマイグレーションを実行してデータベースを更新します。テーブルの作成や変更を適用します。"
+    },
+    {
+      "command": "php artisan migrate:rollback",
+      "description": "最後に実行したマイグレーションバッチをロールバックします。データベースの変更を取り消します。"
+    },
+    {
+      "command": "php artisan migrate:refresh",
+      "description": "全てのマイグレーションをロールバックしてから再実行します。データベースを完全にリセットして再構築します。"
+    },
+    {
+      "command": "php artisan migrate:fresh",
+      "description": "全てのテーブルを削除してからマイグレーションを実行します。データベースを完全にクリーンな状態から再構築します。"
+    },
+    {
+      "command": "php artisan make:middleware",
+      "description": "新しいミドルウェアクラスを作成します。HTTPリクエストの前後で実行される処理を定義するクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:request",
+      "description": "新しいフォームリクエストクラスを作成します。バリデーションルールと認可ロジックを含むリクエストクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:resource",
+      "description": "新しいAPIリソースクラスを作成します。EloquentモデルをJSON形式に変換するためのリソースクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:seeder",
+      "description": "新しいシーダークラスを作成します。データベースに初期データを投入するためのクラスを生成します。"
+    },
+    {
+      "command": "php artisan db:seed",
+      "description": "データベースシーダーを実行して初期データを投入します。開発やテスト用のデータをデータベースに挿入します。"
+    },
+    {
+      "command": "php artisan make:factory",
+      "description": "新しいモデルファクトリークラスを作成します。テスト用のダミーデータを生成するためのファクトリーを生成します。"
+    },
+    {
+      "command": "php artisan route:list",
+      "description": "アプリケーションで定義されている全てのルートの一覧を表示します。URLパターン、HTTPメソッド、コントローラーアクションなどを確認できます。"
+    },
+    {
+      "command": "php artisan route:cache",
+      "description": "ルート定義をキャッシュしてパフォーマンスを向上させます。本番環境で使用することでルート解決の速度が向上します。"
+    },
+    {
+      "command": "php artisan route:clear",
+      "description": "ルートキャッシュをクリアします。ルート定義を変更した後に実行して、新しいルートを反映させます。"
+    },
+    {
+      "command": "php artisan config:cache",
+      "description": "設定ファイルをキャッシュしてパフォーマンスを向上させます。本番環境で使用することで設定の読み込み速度が向上します。"
+    },
+    {
+      "command": "php artisan config:clear",
+      "description": "設定キャッシュをクリアします。設定ファイルを変更した後に実行して、新しい設定を反映させます。"
+    },
+    {
+      "command": "php artisan cache:clear",
+      "description": "アプリケーションのキャッシュをクリアします。キャッシュドライバーに保存されている全てのキャッシュを削除します。"
+    },
+    {
+      "command": "php artisan view:clear",
+      "description": "コンパイル済みのビューファイルをクリアします。Bladeテンプレートを変更した後に実行して、新しいビューを反映させます。"
+    },
+    {
+      "command": "php artisan optimize:clear",
+      "description": "全ての最適化キャッシュをクリアします。ルート、設定、ビュー、イベント、パッケージのキャッシュを一括で削除します。"
+    },
+    {
+      "command": "php artisan tinker",
+      "description": "Laravelの対話型REPL（Read-Eval-Print Loop）を起動します。アプリケーションのコードを対話的に実行してテストできます。"
+    },
+    {
+      "command": "php artisan make:command",
+      "description": "新しいArtisanコマンドクラスを作成します。カスタムコマンドを定義するためのクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:event",
+      "description": "新しいイベントクラスを作成します。アプリケーション内で発生するイベントを定義するクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:listener",
+      "description": "新しいイベントリスナークラスを作成します。イベントが発生した際に実行される処理を定義するクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:job",
+      "description": "新しいジョブクラスを作成します。非同期で実行される処理を定義するクラスを生成します。"
+    },
+    {
+      "command": "php artisan queue:work",
+      "description": "キューに登録されたジョブを処理します。非同期で実行されるジョブをワーカーが処理します。"
+    },
+    {
+      "command": "php artisan queue:listen",
+      "description": "キューを監視して新しいジョブが追加されたら自動的に処理します。開発環境で使用されることが多いコマンドです。"
+    },
+    {
+      "command": "php artisan make:mail",
+      "description": "新しいメールクラスを作成します。メール送信の内容と形式を定義するクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:notification",
+      "description": "新しい通知クラスを作成します。ユーザーへの通知を定義するクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:policy",
+      "description": "新しいポリシークラスを作成します。認可ロジックを定義するクラスを生成します。"
+    },
+    {
+      "command": "php artisan make:provider",
+      "description": "新しいサービスプロバイダークラスを作成します。アプリケーションのサービスコンテナにサービスを登録するクラスを生成します。"
+    },
+    {
+      "command": "php artisan key:generate",
+      "description": "アプリケーションの暗号化キーを生成します。.envファイルのAPP_KEYに設定されるキーを生成します。"
+    },
+    {
+      "command": "php artisan storage:link",
+      "description": "public/storageディレクトリからstorage/app/publicへのシンボリックリンクを作成します。公開ファイルへのアクセスを可能にします。"
+    },
+    {
+      "command": "php artisan make:test",
+      "description": "新しいテストクラスを作成します。PHPUnitを使用したテストコードを記述するクラスを生成します。"
+    },
+    {
+      "command": "php artisan test",
+      "description": "PHPUnitテストスイートを実行します。アプリケーションのテストを実行して結果を確認します。"
+    }
+  ]
+
