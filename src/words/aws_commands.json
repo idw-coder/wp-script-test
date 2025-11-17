@@ -1,0 +1,83 @@
+[
+    {
+      "command": "aws s3 ls",
+      "description": "S3バケットの一覧を表示します。S3に保存されているオブジェクトストレージのバケットを確認できます。"
+    },
+    {
+      "command": "aws s3 cp source destination",
+      "description": "S3バケットとローカルファイルシステム間でファイルをコピーします。--recursiveオプションでディレクトリ全体をコピーできます。"
+    },
+    {
+      "command": "aws s3 sync source destination",
+      "description": "S3バケットとローカルディレクトリを同期します。差分のみを転送するため効率的です。"
+    },
+    {
+      "command": "aws ec2 describe-instances",
+      "description": "EC2インスタンスの詳細情報を取得します。インスタンスID、ステータス、タイプ、IPアドレスなどの情報を確認できます。"
+    },
+    {
+      "command": "aws ec2 start-instances --instance-ids i-1234567890abcdef0",
+      "description": "停止中のEC2インスタンスを起動します。インスタンスIDを指定して起動します。"
+    },
+    {
+      "command": "aws ec2 stop-instances --instance-ids i-1234567890abcdef0",
+      "description": "実行中のEC2インスタンスを停止します。インスタンスIDを指定して停止します。"
+    },
+    {
+      "command": "aws lambda list-functions",
+      "description": "Lambda関数の一覧を取得します。サーバーレスで実行される関数のリストを確認できます。"
+    },
+    {
+      "command": "aws lambda invoke --function-name my-function output.json",
+      "description": "Lambda関数を実行します。関数名を指定して実行し、結果をファイルに出力できます。"
+    },
+    {
+      "command": "aws rds describe-db-instances",
+      "description": "RDSデータベースインスタンスの詳細情報を取得します。データベースのステータス、エンドポイント、設定などを確認できます。"
+    },
+    {
+      "command": "aws cloudformation describe-stacks",
+      "description": "CloudFormationスタックの一覧と詳細を取得します。インフラストラクチャの状態を確認できます。"
+    },
+    {
+      "command": "aws cloudformation create-stack --stack-name my-stack --template-body file://template.yaml",
+      "description": "CloudFormationスタックを作成します。テンプレートファイルを指定してインフラを構築します。"
+    },
+    {
+      "command": "aws iam list-users",
+      "description": "IAMユーザーの一覧を取得します。AWSアカウント内のユーザーを確認できます。"
+    },
+    {
+      "command": "aws iam create-user --user-name my-user",
+      "description": "新しいIAMユーザーを作成します。ユーザー名を指定してユーザーを作成します。"
+    },
+    {
+      "command": "aws cloudwatch get-metric-statistics",
+      "description": "CloudWatchメトリクスの統計情報を取得します。リソースのパフォーマンスデータを確認できます。"
+    },
+    {
+      "command": "aws ecs list-clusters",
+      "description": "ECSクラスターの一覧を取得します。コンテナオーケストレーションサービスのクラスターを確認できます。"
+    },
+    {
+      "command": "aws ecs describe-services --cluster my-cluster --services my-service",
+      "description": "ECSサービスの詳細情報を取得します。クラスター名とサービス名を指定して状態を確認できます。"
+    },
+    {
+      "command": "aws elbv2 describe-load-balancers",
+      "description": "Application Load BalancerやNetwork Load Balancerの一覧を取得します。ロードバランサーの設定を確認できます。"
+    },
+    {
+      "command": "aws route53 list-hosted-zones",
+      "description": "Route 53のホストゾーンの一覧を取得します。DNS設定を管理するゾーンを確認できます。"
+    },
+    {
+      "command": "aws dynamodb list-tables",
+      "description": "DynamoDBテーブルの一覧を取得します。NoSQLデータベースのテーブルを確認できます。"
+    },
+    {
+      "command": "aws s3api create-bucket --bucket my-bucket --region us-east-1",
+      "description": "新しいS3バケットを作成します。バケット名とリージョンを指定して作成します。"
+    }
+]
+

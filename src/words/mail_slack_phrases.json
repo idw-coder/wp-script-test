@@ -1,0 +1,95 @@
+[
+    {
+      "command": "Otemachi ni naranai han'i de daijoubu desu no de",
+      "description": "お手間にならない範囲で大丈夫ですので - 無理をしないでくださいという意味で、相手に負担をかけないようにする表現"
+    },
+    {
+      "command": "Wakaru tokoro dake go-kyoyu itadakeru to tasukarimasu.",
+      "description": "わかるところだけご共有いただけますと助かります - 分かる範囲で情報を共有してほしいという丁寧な依頼表現"
+    },
+    {
+      "command": "Tsuika de kyoshuku desu ga, ika no mo go-kakunin itadakeru to ureshii desu.",
+      "description": "追加で恐縮ですが、以下もご確認いただけますでしょうか - 追加の依頼をする際の丁寧な前置き表現"
+    },
+    {
+      "command": "Otesu wo okake shimasu ga go-ran itadaki, moshi ninshiki soku sai ga areba oshiete kudasai.",
+      "description": "お手数をおかけしますがご覧いただき、もし認識齟齬があれば教えてください - 確認を依頼し、認識の違いがあれば知らせてほしいという表現"
+    },
+    {
+      "command": "Mondai nakereba sono tsune go-henshin kudasai.",
+      "description": "問題なければその旨ご返信ください - 問題がなければそのことを返信してほしいという依頼"
+    },
+    {
+      "command": "Hitomazu genjo no mama yosu wo minagara, tekisetsu na taimingu de aratamete kento suru katachi de mondai nai to kangaete orimasu.",
+      "description": "ひとまず現状のまま様子を見ながら、適切なタイミングで改めて検討する形で問題ないかと考えております - 現状維持で様子を見て、後で検討する提案"
+    },
+    {
+      "command": "Awasete, kashira no ten ni tsuite mo oukagai dekireba to omoimasu.",
+      "description": "あわせて、下記の点についてもお伺いできればと思います - 追加で質問があることを丁寧に伝える表現"
+    },
+    {
+      "command": "Itadaita jouhou wo fumaete kakunin・seiri no ue, aratamete go-renraku sasete itadakimasu no de, shosho omachi itadakemasu to saiwai desu.",
+      "description": "いただいた情報を踏まえて確認・整理の上、改めてご連絡させていただきますので、少々お待ちいただけますと幸いです - 情報を確認・整理してから連絡するので待ってほしいという表現"
+    },
+    {
+      "command": "O-isogashii tokoro arigatou gozaimasu.",
+      "description": "お忙しいところありがとうございます - 忙しい中対応してくれたことへの感謝"
+    },
+    {
+      "command": "Yoroshiku onegai itashimasu.",
+      "description": "よろしくお願いいたします - 依頼やお願いの締めくくりに使う定番表現"
+    },
+    {
+      "command": "Kono tabi wa osewa ni narimasu.",
+      "description": "この度はお世話になります - 新しい取引や関係が始まる際の挨拶"
+    },
+    {
+      "command": "Shitsurei shimasu ga, yoroshiku onegai itashimasu.",
+      "description": "失礼しますが、よろしくお願いいたします - メールの締めくくりに使う丁寧な表現"
+    },
+    {
+      "command": "Moshi go-yotei ga arimashitara, go-renraku itadakeru to ureshii desu.",
+      "description": "もしご予定がございましたら、ご連絡いただけると嬉しいです - 予定があれば連絡してほしいという依頼"
+    },
+    {
+      "command": "Go-busata shite ori moushiwake gozaimasen.",
+      "description": "ご無沙汰しており申し訳ございません - 久しぶりの連絡で使う謝罪の表現"
+    },
+    {
+      "command": "Kyuukyuu go-renraku itadaki arigatou gozaimasu.",
+      "description": "急遽ご連絡いただきありがとうございます - 急な連絡への感謝"
+    },
+    {
+      "command": "Nani ka go-shitsumon ga gozaimashitara, o-kiki kudasai.",
+      "description": "何かご質問がございましたら、お聞きください - 質問があれば聞いてほしいという表現"
+    },
+    {
+      "command": "O-isogashii tokoro o-jama shite sumimasen.",
+      "description": "お忙しいところお邪魔してすみません - 忙しい中連絡することへの謝罪"
+    },
+    {
+      "command": "Go-kentou no ue, go-kibou wo o-kiki kudasai mase.",
+      "description": "ご検討の上、ご希望をお聞きくださいませ - 検討して希望を聞かせてほしいという依頼"
+    },
+    {
+      "command": "Kono tabi wa go-meiwaku wo okake shite moushiwake gozaimasen.",
+      "description": "このたびはご迷惑をおかけして申し訳ございません - 迷惑をかけたことへの謝罪"
+    },
+    {
+      "command": "soredewa yoroshiku onegai shimasu",
+      "description": "それではよろしくおねがいします。メールの締めくくりに使います。"
+    },
+    {
+      "command": "soredewa shitsurei shimasu",
+      "description": "それではしつれいします。メールの終わりに使います。"
+    },
+    {
+      "command": "saki hodo wa osewa ni narimashita",
+      "description": "さきほどはおせわになりました。先ほどの出来事への感謝を伝える際に使います。"
+    },
+    {
+      "command": "kono tabi wa arigatou gozaimashita",
+      "description": "このたびはありがとうございました。特定の出来事への感謝を伝える際に使います。"
+    }
+]
+

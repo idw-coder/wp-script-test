@@ -1,0 +1,327 @@
+[
+    {
+      "command": "explode(separator, string, limit)",
+      "description": "文字列を指定した区切り文字で分割して配列に変換します。第3引数のlimitで分割数を制限できます。例: explode(',', 'a,b,c') → ['a', 'b', 'c']"
+    },
+    {
+      "command": "str_split(string, length)",
+      "description": "文字列を指定した長さで分割して配列に変換します。lengthを省略すると1文字ずつに分割されます。例: str_split('hello', 2) → ['he', 'll', 'o']"
+    },
+    {
+      "command": "implode(separator, array)",
+      "description": "配列の要素を指定した区切り文字で結合して文字列に変換します。join()のエイリアスです。例: implode(',', ['a', 'b', 'c']) → 'a,b,c'"
+    },
+    {
+      "command": "strlen(string)",
+      "description": "文字列の長さ（バイト数）を取得します。マルチバイト文字の場合はmb_strlen()を使用します。例: strlen('hello') → 5"
+    },
+    {
+      "command": "mb_strlen(string, encoding)",
+      "description": "マルチバイト文字列の長さ（文字数）を取得します。日本語などのマルチバイト文字を正しくカウントできます。encodingは通常'UTF-8'を指定します。"
+    },
+    {
+      "command": "substr(string, start, length)",
+      "description": "文字列の一部を取得します。startで開始位置、lengthで取得する長さを指定します。負の値を指定すると末尾から数えます。"
+    },
+    {
+      "command": "mb_substr(string, start, length, encoding)",
+      "description": "マルチバイト文字列の一部を取得します。日本語などのマルチバイト文字を正しく処理できます。encodingは通常'UTF-8'を指定します。"
+    },
+    {
+      "command": "str_replace(search, replace, subject)",
+      "description": "文字列内の指定した文字列を別の文字列に置換します。配列を指定することで複数の置換を一度に行えます。例: str_replace('world', 'PHP', 'hello world') → 'hello PHP'"
+    },
+    {
+      "command": "preg_replace(pattern, replacement, subject)",
+      "description": "正規表現を使用して文字列を置換します。パターンマッチングによる高度な置換が可能です。例: preg_replace('/\\d+/', 'X', 'abc123def') → 'abcXdef'"
+    },
+    {
+      "command": "trim(string, characters)",
+      "description": "文字列の先頭と末尾の空白文字（または指定した文字）を削除します。ltrim()は先頭のみ、rtrim()は末尾のみを削除します。"
+    },
+    {
+      "command": "strtolower(string)",
+      "description": "文字列を小文字に変換します。大文字小文字を区別しない比較を行う際に使用します。例: strtolower('HELLO') → 'hello'"
+    },
+    {
+      "command": "strtoupper(string)",
+      "description": "文字列を大文字に変換します。例: strtoupper('hello') → 'HELLO'"
+    },
+    {
+      "command": "ucfirst(string)",
+      "description": "文字列の最初の文字を大文字に変換します。例: ucfirst('hello') → 'Hello'"
+    },
+    {
+      "command": "ucwords(string)",
+      "description": "文字列内の各単語の最初の文字を大文字に変換します。例: ucwords('hello world') → 'Hello World'"
+    },
+    {
+      "command": "strpos(haystack, needle, offset)",
+      "description": "文字列内で指定した文字列が最初に出現する位置を取得します。見つからない場合はfalseを返します。大文字小文字を区別します。"
+    },
+    {
+      "command": "stripos(haystack, needle, offset)",
+      "description": "strpos()の大文字小文字を区別しないバージョンです。文字列検索を大文字小文字に関係なく行います。"
+    },
+    {
+      "command": "strstr(haystack, needle, before_needle)",
+      "description": "文字列内で指定した文字列が最初に出現する位置から最後までの部分を取得します。before_needleがtrueの場合は、その位置より前の部分を返します。"
+    },
+    {
+      "command": "array_map(callback, array1, array2, ...)",
+      "description": "配列の各要素にコールバック関数を適用して新しい配列を作成します。元の配列は変更されません。例: array_map('strtoupper', ['a', 'b']) → ['A', 'B']"
+    },
+    {
+      "command": "array_filter(array, callback)",
+      "description": "配列の要素をコールバック関数でフィルタリングして新しい配列を作成します。条件に合う要素だけを残します。元の配列は変更されません。"
+    },
+    {
+      "command": "array_reduce(array, callback, initial)",
+      "description": "配列の要素をコールバック関数で順次処理して単一の値に集約します。合計や積を計算する際に使用します。"
+    },
+    {
+      "command": "array_merge(array1, array2, ...)",
+      "description": "複数の配列を結合して新しい配列を作成します。数値キーは再インデックスされ、文字列キーは後の値で上書きされます。"
+    },
+    {
+      "command": "array_push(array, value1, value2, ...)",
+      "description": "配列の末尾に1つ以上の要素を追加します。配列の長さが増加します。例: array_push($arr, 'new') は $arr[] = 'new' と同じです。"
+    },
+    {
+      "command": "array_pop(array)",
+      "description": "配列の末尾の要素を取り出して返します。配列からはその要素が削除され、配列の長さが1つ減ります。"
+    },
+    {
+      "command": "array_shift(array)",
+      "description": "配列の先頭の要素を取り出して返します。配列からはその要素が削除され、残りの要素は再インデックスされます。"
+    },
+    {
+      "command": "array_unshift(array, value1, value2, ...)",
+      "description": "配列の先頭に1つ以上の要素を追加します。既存の要素は後ろにシフトされ、配列の長さが増加します。"
+    },
+    {
+      "command": "array_slice(array, offset, length, preserve_keys)",
+      "description": "配列の一部を取得します。offsetで開始位置、lengthで取得する要素数を指定します。preserve_keysがtrueの場合はキーを保持します。"
+    },
+    {
+      "command": "array_splice(array, offset, length, replacement)",
+      "description": "配列の一部を削除し、必要に応じて別の要素で置き換えます。元の配列が変更されます。"
+    },
+    {
+      "command": "in_array(needle, haystack, strict)",
+      "description": "配列内に指定した値が存在するかチェックします。strictがtrueの場合は型も厳密に比較します。例: in_array('apple', ['apple', 'banana']) → true"
+    },
+    {
+      "command": "array_search(needle, haystack, strict)",
+      "description": "配列内で指定した値を検索し、見つかった場合はそのキーを返します。見つからない場合はfalseを返します。"
+    },
+    {
+      "command": "array_key_exists(key, array)",
+      "description": "配列に指定したキーが存在するかチェックします。isset()と似ていますが、値がnullの場合でもtrueを返します。"
+    },
+    {
+      "command": "array_keys(array, search_value, strict)",
+      "description": "配列の全てのキー、または指定した値を持つ要素のキーを取得します。配列のキーの一覧を取得する際に使用します。"
+    },
+    {
+      "command": "array_values(array)",
+      "description": "配列の全ての値を取得して新しい配列を作成します。キーは0から始まる連番に再インデックスされます。"
+    },
+    {
+      "command": "count(array, mode)",
+      "description": "配列の要素数を取得します。modeがCOUNT_RECURSIVEの場合は多次元配列も再帰的にカウントします。sizeof()のエイリアスです。"
+    },
+    {
+      "command": "array_unique(array, sort_flags)",
+      "description": "配列から重複した値を削除して新しい配列を作成します。最初に出現した値が保持されます。"
+    },
+    {
+      "command": "array_reverse(array, preserve_keys)",
+      "description": "配列の要素の順序を逆にした新しい配列を作成します。preserve_keysがtrueの場合はキーを保持します。"
+    },
+    {
+      "command": "sort(array, sort_flags)",
+      "description": "配列を値で昇順にソートします。元の配列が変更されます。rsort()は降順、asort()はキーを保持してソートします。"
+    },
+    {
+      "command": "ksort(array, sort_flags)",
+      "description": "配列をキーで昇順にソートします。元の配列が変更されます。krsort()は降順でソートします。"
+    },
+    {
+      "command": "abs(number)",
+      "description": "数値の絶対値を取得します。負の数も正の数に変換されます。例: abs(-5) → 5"
+    },
+    {
+      "command": "round(number, precision, mode)",
+      "description": "数値を指定した精度で四捨五入します。precisionで小数点以下の桁数を指定します。例: round(3.14159, 2) → 3.14"
+    },
+    {
+      "command": "floor(number)",
+      "description": "数値以下の最大の整数を取得します。小数点以下を切り捨てます。例: floor(3.7) → 3"
+    },
+    {
+      "command": "ceil(number)",
+      "description": "数値以上の最小の整数を取得します。小数点以下を切り上げます。例: ceil(3.2) → 4"
+    },
+    {
+      "command": "min(values)",
+      "description": "引数の中で最小の値を取得します。配列を渡すこともできます。例: min(1, 2, 3) → 1"
+    },
+    {
+      "command": "max(values)",
+      "description": "引数の中で最大の値を取得します。配列を渡すこともできます。例: max(1, 2, 3) → 3"
+    },
+    {
+      "command": "rand(min, max)",
+      "description": "指定した範囲のランダムな整数を生成します。minとmaxを省略すると0からgetrandmax()までの値を返します。"
+    },
+    {
+      "command": "mt_rand(min, max)",
+      "description": "より良い乱数生成アルゴリズムを使用してランダムな整数を生成します。rand()よりも推奨されます。"
+    },
+    {
+      "command": "date(format, timestamp)",
+      "description": "指定したフォーマットで日付を文字列として取得します。timestampを省略すると現在の日時を使用します。例: date('Y-m-d H:i:s')"
+    },
+    {
+      "command": "strtotime(time_string, now)",
+      "description": "英語形式の日付文字列をUnixタイムスタンプに変換します。'now', '+1 day', '2024-01-01'などの形式に対応します。"
+    },
+    {
+      "command": "time()",
+      "description": "現在のUnixタイムスタンプ（1970年1月1日からの経過秒数）を取得します。日時の計算や比較に使用します。"
+    },
+    {
+      "command": "mktime(hour, minute, second, month, day, year)",
+      "description": "指定した日時のUnixタイムスタンプを取得します。引数は時、分、秒、月、日、年の順です。"
+    },
+    {
+      "command": "var_dump(expression, ...)",
+      "description": "変数の型と値を詳細に出力します。デバッグ時に使用します。配列やオブジェクトの構造も表示されます。"
+    },
+    {
+      "command": "print_r(expression, return)",
+      "description": "変数を人間が読みやすい形式で出力します。returnがtrueの場合は出力せずに文字列として返します。配列の構造を確認する際に使用します。"
+    },
+    {
+      "command": "isset(variable, ...)",
+      "description": "変数が設定されているか、かつnullでないかをチェックします。複数の変数を指定した場合、全てが設定されている場合のみtrueを返します。"
+    },
+    {
+      "command": "empty(variable)",
+      "description": "変数が空かどうかをチェックします。空文字列、0、null、false、空配列などは空とみなされます。"
+    },
+    {
+      "command": "is_null(variable)",
+      "description": "変数がnullかどうかをチェックします。isset()の逆の動作をします。"
+    },
+    {
+      "command": "is_array(variable)",
+      "description": "変数が配列かどうかをチェックします。型チェック関数の一つです。is_string(), is_int(), is_bool()などもあります。"
+    },
+    {
+      "command": "is_numeric(variable)",
+      "description": "変数が数値または数値文字列かどうかをチェックします。'123'のような文字列もtrueを返します。"
+    },
+    {
+      "command": "json_encode(value, flags, depth)",
+      "description": "値をJSON形式の文字列に変換します。配列やオブジェクトをJSONに変換する際に使用します。例: json_encode(['name' => 'test']) → '{\"name\":\"test\"}'"
+    },
+    {
+      "command": "json_decode(json, associative, depth, flags)",
+      "description": "JSON文字列をPHPの値に変換します。associativeがtrueの場合は連想配列、falseの場合はオブジェクトとして返します。"
+    },
+    {
+      "command": "serialize(value)",
+      "description": "値を保存可能な文字列表現に変換します。配列やオブジェクトを文字列として保存する際に使用します。"
+    },
+    {
+      "command": "unserialize(data, options)",
+      "description": "serialize()で変換された文字列を元の値に戻します。保存したデータを復元する際に使用します。"
+    },
+    {
+      "command": "md5(string, raw_output)",
+      "description": "文字列のMD5ハッシュ値を計算します。パスワードのハッシュ化にはpassword_hash()の使用が推奨されます。"
+    },
+    {
+      "command": "sha1(string, raw_output)",
+      "description": "文字列のSHA1ハッシュ値を計算します。セキュリティが重要な場合はpassword_hash()の使用が推奨されます。"
+    },
+    {
+      "command": "password_hash(password, algorithm, options)",
+      "description": "パスワードのハッシュを作成します。PASSWORD_DEFAULTやPASSWORD_BCRYPTなどのアルゴリズムを指定できます。セキュアなパスワード保存に推奨されます。"
+    },
+    {
+      "command": "password_verify(password, hash)",
+      "description": "パスワードがハッシュと一致するか検証します。password_hash()で作成したハッシュと照合します。"
+    },
+    {
+      "command": "htmlspecialchars(string, flags, encoding, double_encode)",
+      "description": "特殊文字をHTMLエンティティに変換します。XSS攻撃を防ぐために、HTML出力前に使用します。例: '<' → '&lt;'"
+    },
+    {
+      "command": "htmlentities(string, flags, encoding, double_encode)",
+      "description": "htmlspecialchars()と似ていますが、より多くの文字をHTMLエンティティに変換します。"
+    },
+    {
+      "command": "strip_tags(string, allowed_tags)",
+      "description": "文字列からHTMLタグやPHPタグを削除します。allowed_tagsで許可するタグを指定できます。"
+    },
+    {
+      "command": "urlencode(string)",
+      "description": "文字列をURLエンコードします。URLのクエリパラメータに使用する際に必要です。例: 'hello world' → 'hello+world'"
+    },
+    {
+      "command": "urldecode(string)",
+      "description": "URLエンコードされた文字列をデコードします。urlencode()でエンコードされた文字列を元に戻します。"
+    },
+    {
+      "command": "base64_encode(data)",
+      "description": "データをBase64エンコードします。バイナリデータをテキストとして扱う際に使用します。"
+    },
+    {
+      "command": "base64_decode(data, strict)",
+      "description": "Base64エンコードされたデータをデコードします。base64_encode()でエンコードされたデータを元に戻します。"
+    },
+    {
+      "command": "file_get_contents(filename, use_include_path, context, offset, max_length)",
+      "description": "ファイルの内容を文字列として読み込みます。URLを指定してHTTPリクエストも可能です。"
+    },
+    {
+      "command": "file_put_contents(filename, data, flags, context)",
+      "description": "データをファイルに書き込みます。ファイルが存在しない場合は作成され、存在する場合は上書きされます（FILE_APPENDフラグで追記も可能）。"
+    },
+    {
+      "command": "file_exists(filename)",
+      "description": "ファイルまたはディレクトリが存在するかチェックします。ファイルの存在確認に使用します。"
+    },
+    {
+      "command": "is_file(filename)",
+      "description": "指定したパスが通常のファイルかどうかをチェックします。ディレクトリやシンボリックリンクはfalseを返します。"
+    },
+    {
+      "command": "is_dir(filename)",
+      "description": "指定したパスがディレクトリかどうかをチェックします。ディレクトリの存在確認に使用します。"
+    },
+    {
+      "command": "mkdir(pathname, mode, recursive, context)",
+      "description": "ディレクトリを作成します。recursiveがtrueの場合は親ディレクトリも自動的に作成されます。"
+    },
+    {
+      "command": "rmdir(dirname)",
+      "description": "空のディレクトリを削除します。ディレクトリが空でない場合はエラーになります。"
+    },
+    {
+      "command": "unlink(filename, context)",
+      "description": "ファイルを削除します。ファイルの削除に使用します。"
+    },
+    {
+      "command": "copy(source, dest, context)",
+      "description": "ファイルをコピーします。sourceをdestにコピーします。"
+    },
+    {
+      "command": "rename(oldname, newname, context)",
+      "description": "ファイルまたはディレクトリの名前を変更します。移動にも使用できます。"
+    }
+]
+
