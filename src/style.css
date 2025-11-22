@@ -1,4 +1,3 @@
-/* @tailwind base; を削除してグローバルリセットを無効化 */
 @tailwind components;
 @tailwind utilities;
 
